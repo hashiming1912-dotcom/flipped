@@ -1,119 +1,248 @@
-<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover'><title>Lilac RP V6</title><style>
-:root{--bg:#f8f6ff;--card:#fff;--ink:#292637;--muted:#89849a;--line:#ece8f6;--p:#7b61e8;--p2:#a998f1}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:14px system-ui,-apple-system,"Noto Sans SC",sans-serif;color:var(--ink)}button,input,textarea{font:inherit}.app{max-width:520px;margin:auto;min-height:100vh;background:#fbfaff;padding-bottom:76px}.top{position:sticky;top:0;z-index:5;background:#ffffffdd;backdrop-filter:blur(14px);padding:18px 18px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#e7dfff,#c8bafa);display:grid;place-items:center;font-size:20px}.grow{flex:1}.title{font-weight:750;font-size:17px}.sub{font-size:12px;color:var(--muted);margin-top:2px}.pill{border:0;border-radius:20px;padding:9px 12px;background:#eee9ff;color:#6448d7}.page{display:none;padding:16px}.page.on{display:block}.hero{padding:18px;border-radius:22px;background:linear-gradient(135deg,#efeaff,#fff);border:1px solid #e7e0ff;margin-bottom:14px}.hero h2{margin:0 0 6px;font-size:22px}.hero p{margin:0;color:var(--muted);line-height:1.6}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px;margin:12px 0;box-shadow:0 6px 22px #5e4ca20b}.row{display:flex;gap:10px;align-items:center}.btn{border:0;border-radius:14px;padding:11px 14px;background:#eeeaf8;color:#4c465b}.btn.primary{background:linear-gradient(135deg,var(--p),#8e69f0);color:#fff}.btn.danger{color:#b44b62;background:#fff0f3}.field{margin:13px 0}.field label{display:block;font-weight:650;margin-bottom:7px}.field input,.field textarea{width:100%;border:1px solid var(--line);background:#fcfbff;border-radius:14px;padding:12px;outline:none}.field textarea{min-height:90px;resize:vertical}.hint{font-size:12px;color:var(--muted);line-height:1.5}.chars{display:grid;grid-template-columns:1fr 1fr;gap:12px}.char{padding:14px;border-radius:18px;background:white;border:1px solid var(--line)}.char .pic{height:110px;border-radius:14px;background:linear-gradient(145deg,#e7ddff,#faf8ff);display:grid;place-items:center;font-size:34px}.char h3{margin:10px 0 3px}.chat{min-height:calc(100vh - 220px)}.msg{max-width:88%;padding:12px 14px;margin:10px 0;border-radius:17px;line-height:1.65;white-space:pre-wrap}.ai{background:white;border:1px solid var(--line);border-top-left-radius:5px}.me{margin-left:auto;background:#8065e8;color:white;border-bottom-right-radius:5px}.composer{position:sticky;bottom:70px;background:#fbfaffdd;backdrop-filter:blur(10px);padding:8px 0}.compose{display:flex;gap:8px;background:white;border:1px solid var(--line);border-radius:18px;padding:7px}.compose textarea{flex:1;border:0;outline:0;resize:none;min-height:40px;max-height:100px;padding:9px;background:transparent}.send{width:42px;height:42px;border:0;border-radius:50%;background:var(--p);color:white;font-size:18px}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:70px;background:#ffffffee;backdrop-filter:blur(14px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);z-index:9}.nav button{border:0;background:none;color:#9992aa}.nav button.on{color:var(--p);font-weight:700}.nav b{display:block;font-size:19px;margin-bottom:2px}.empty{text-align:center;color:var(--muted);padding:45px 10px}.section-title{font-size:16px;font-weight:750;margin:20px 2px 8px}.status{font-size:12px;color:var(--muted)}
 
-/* V2 全局美化 */
-:root{--userBubble:#8065e8;--aiBubble:#ffffff;--radius:17px;--fontScale:1;--wallpaper:none;--blur:14px}
-body{font-size:calc(14px * var(--fontScale));background-image:var(--wallpaper);background-size:cover;background-attachment:fixed;background-position:center}.app{background:color-mix(in srgb,var(--bg) 92%,transparent)}.msg{border-radius:var(--radius)}.me{background:var(--userBubble)}.ai{background:var(--aiBubble)}
-.theme-grid,.theater-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.theme-chip,.theater-chip{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:14px;text-align:left;color:var(--ink)}.theme-chip b,.theater-chip b{display:block;margin-bottom:4px}.swatch{height:42px;border-radius:12px;margin-bottom:8px}.mini{font-size:11px;color:var(--muted)}.theater-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}.theater-output{white-space:pre-wrap;line-height:1.75;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px;min-height:100px}.modal{display:none;position:fixed;inset:0;z-index:30;background:#1d193655;align-items:flex-end;justify-content:center}.modal.on{display:flex}.sheet{width:min(520px,100%);max-height:86vh;overflow:auto;background:var(--bg);border-radius:24px 24px 0 0;padding:18px;box-shadow:0 -12px 50px #29204433}.sheetbar{width:42px;height:5px;border-radius:8px;background:#d8d2e6;margin:0 auto 14px}.range{width:100%}.colorrow{display:grid;grid-template-columns:1fr 52px;gap:8px}.colorrow input[type=color]{width:52px;height:44px;padding:3px;border:1px solid var(--line);border-radius:12px;background:white}.msg-tools{display:flex;justify-content:flex-end;margin-top:8px}.iconbtn{border:0;background:transparent;color:var(--muted);font-size:12px;padding:4px 7px}.fab{position:fixed;right:max(18px,calc((100vw - 520px)/2 + 18px));bottom:88px;width:48px;height:48px;border-radius:50%;border:0;background:linear-gradient(135deg,#8b6cf1,#bd8ff5);color:white;font-size:20px;box-shadow:0 10px 30px #6f54d34a;z-index:8}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>我的专属 AI RP</title>
+    <!-- 引入 Markdown 渲染和 HTML 过滤库 (需要联网加载) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+    
+    <style>
+        /* ================= 基础样式 ================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            display: flex; flex-direction: column; 
+            height: 100dvh; /* 适配手机浏览器底部栏 */
+            background: #1a1a1a; color: #eee; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            overflow: hidden;
+        }
+        
+        /* 顶部栏 */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 12px 15px; background: #252525; 
+            border-bottom: 1px solid #333; z-index: 10;
+        }
+        header h2 { font-size: 16px; font-weight: 500; color: #e0c3fc; }
+        header button { 
+            background: none; border: none; color: #aaa; 
+            font-size: 14px; cursor: pointer; padding: 5px;
+        }
+        header button:active { color: #fff; }
 
-/* V3 Step 2 */
-.toggle{position:relative;width:50px;height:29px;display:inline-block}.toggle input{display:none}.slider{position:absolute;inset:0;background:#d9d5e2;border-radius:99px;transition:.2s}.slider:before{content:"";position:absolute;width:23px;height:23px;left:3px;top:3px;background:white;border-radius:50%;box-shadow:0 2px 7px #0002;transition:.2s}.toggle input:checked+.slider{background:var(--p)}.toggle input:checked+.slider:before{transform:translateX(21px)}.settingline{display:flex;align-items:center;gap:12px;padding:10px 0}.badge{display:inline-block;padding:4px 8px;border-radius:99px;background:#eee9ff;color:var(--p);font-size:11px}.lore-item,.memory-item{border:1px solid var(--line);border-radius:14px;padding:12px;margin:9px 0;background:var(--card)}.lore-item b,.memory-item b{display:block;margin-bottom:4px}.inline-actions{display:flex;gap:6px;margin-top:8px}.inline-actions button{border:0;border-radius:10px;padding:6px 9px;background:#f0edf7;color:var(--ink);font-size:12px}.memory-item textarea{width:100%;min-height:62px;border:1px solid var(--line);border-radius:10px;padding:9px;background:#fcfbff;color:var(--ink)}
+        /* 聊天区 */
+        main { 
+            flex: 1; overflow-y: auto; padding: 15px; 
+            display: flex; flex-direction: column; gap: 15px; 
+        }
+        
+        /* 消息气泡 */
+        .message { 
+            max-width: 85%; padding: 12px; border-radius: 12px; 
+            line-height: 1.6; word-wrap: break-word; font-size: 15px;
+            position: relative;
+        }
+        .message.user { 
+            align-self: flex-end; background: #7b2cbf; 
+            color: #fff; border-bottom-right-radius: 2px; 
+        }
+        .message.assistant { 
+            align-self: flex-start; background: #2d2d2d; 
+            color: #ddd; border-bottom-left-radius: 2px; 
+            border: 1px solid #333;
+        }
+        .message p { margin-bottom: 8px; }
+        .message p:last-child { margin-bottom: 0; }
+        
+        /* 消息操作按钮 */
+        .message .actions { 
+            margin-top: 10px; padding-top: 8px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px; opacity: 0.7; display: flex; gap: 15px; 
+        }
+        .message .actions span { cursor: pointer; color: #bbb; }
+        .message .actions span:active { color: #fff; }
 
-/* V5 Visual Chat */
-#chat{position:relative;isolation:isolate;overflow:hidden;min-height:calc(100vh - 140px)}
-.chat-bg,.char-stand{position:fixed;pointer-events:none;display:none;z-index:-2}
-.chat-bg{inset:0;left:50%;transform:translateX(-50%);width:min(520px,100%);background-position:center;background-size:cover;background-repeat:no-repeat;filter:brightness(var(--bgBright,1)) blur(var(--bgBlur,0px))}
-.chat-bg:after{content:"";position:absolute;inset:0;background:rgba(20,15,35,var(--bgShade,.12))}
-.char-stand{z-index:-1;bottom:70px;top:90px;left:50%;width:min(520px,100%);transform:translateX(-50%);background-repeat:no-repeat;background-size:var(--standSize,72%) auto;background-position:var(--standX,50%) var(--standY,100%);opacity:var(--standOpacity,.78)}
-#chat.on .chat-bg,#chat.on .char-stand{display:block}.chat>.msgwrap{position:relative}.msg{backdrop-filter:blur(9px);box-shadow:0 5px 18px #241b4312}.ai{background:color-mix(in srgb,var(--aiBubble) 86%,transparent)}.me{background:color-mix(in srgb,var(--userBubble) 91%,transparent)}
-.uploadbox{border:1px dashed #cfc6e8;border-radius:16px;padding:12px;background:#fcfbff}.previewimg{height:150px;border-radius:14px;background:#f1edf9 center/contain no-repeat;margin:8px 0;display:grid;place-items:center;color:var(--muted)}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.three button{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:9px}.three button.on{outline:2px solid var(--p);color:var(--p)}
+        /* 底部输入区 */
+        footer { 
+            display: flex; padding: 12px 15px; background: #252525; 
+            border-top: 1px solid #333; gap: 10px; align-items: flex-end;
+        }
+        footer textarea { 
+            flex: 1; resize: none; height: 42px; max-height: 120px;
+            padding: 10px 12px; border-radius: 20px; border: 1px solid #444; 
+            background: #333; color: #fff; font-size: 15px; 
+            font-family: inherit; line-height: 1.4;
+        }
+        footer textarea:focus { outline: none; border-color: #7b2cbf; }
+        footer button { 
+            background: #7b2cbf; color: white; border: none; 
+            padding: 0 20px; height: 42px; border-radius: 20px; 
+            font-size: 15px; font-weight: bold; flex-shrink: 0;
+        }
+        footer button:active { background: #5a1a8a; }
+        footer button:disabled { background: #555; color: #888; }
 
-/* V6 Chat Saves & Branches */
-.savebar{display:flex;gap:8px;align-items:center;margin:0 0 10px;position:relative;z-index:2}.savebar select{flex:1;border:1px solid var(--line);background:color-mix(in srgb,var(--card) 90%,transparent);color:var(--ink);border-radius:13px;padding:9px 11px;backdrop-filter:blur(10px)}.branchbar{display:flex;gap:5px;align-items:center;justify-content:flex-end;margin-top:5px;font-size:11px;color:var(--muted)}.branchbar button{border:0;background:color-mix(in srgb,var(--card) 82%,transparent);color:var(--ink);border-radius:9px;padding:3px 7px}.summarybox{font-size:12px;line-height:1.55;color:var(--muted);background:color-mix(in srgb,var(--card) 78%,transparent);border:1px solid var(--line);border-radius:13px;padding:9px 11px;margin-bottom:10px;display:none}.summarybox.on{display:block}
-</style></head><body><main class='app'><header class='top'><div class='avatar'>✦</div><div class='grow'><div class='title'>Lilac RP</div><div class='sub'>角色扮演 · 本地保存 · 自接 API</div></div><button class='pill' onclick="show('settings')">API</button></header>
-<section id='chat' class='page on'><div id='chatBg' class='chat-bg'></div><div id='charStand' class='char-stand'></div><div class='hero'><h2 id='chatName'>开始一段故事</h2><p id='chatDesc'>选择角色后即可聊天。无需调整预设，角色设定会自动加入上下文。</p></div><div class='savebar'><select id='saveSelect' onchange='switchSave(this.value)'></select><button class='btn' onclick='newSave()'>＋存档</button><button class='btn' onclick='renameSave()'>改名</button></div><div id='storySummary' class='summarybox'></div><div id='messages' class='chat'><div class='empty'>还没有对话。先去「角色」创建一个角色吧。</div></div><button class='fab' title='小剧场' onclick='openTheater()'>🎭</button><div class='composer'><div class='compose'><textarea id='input' placeholder='输入消息…'></textarea><button id='sendBtn' class='send' onclick='sendMsg()'>➤</button></div></div></section>
-<section id='characters' class='page'><div class='row'><div class='grow'><div class='section-title'>我的角色</div><div class='hint'>角色资料会保存在当前浏览器。</div></div><button class='btn' onclick="document.getElementById('charImportFile').click()">⇩ 酒馆导入</button><button class='btn primary' onclick='newCharacter()'>＋ 创建</button><input id='charImportFile' type='file' accept='.json,application/json' style='display:none' onchange='importSTCharacter(event)'></div><div id='charList' class='chars'></div><div id='editor' class='card' style='display:none'><div class='section-title'>角色编辑</div><div class='field'><label>名称</label><input id='cName' placeholder='例如：顾淮南'></div><div class='field'><label>年龄</label><input id='cAge' type='number' min='0' placeholder='例如：28（成人内容模式仅限 18+）'></div><div class='field'><label>角色人设</label><textarea id='cPersona' placeholder='身份、外貌、性格、行为习惯、与 user 的关系…'></textarea></div><div class='field'><label>默认认知</label><textarea id='cUser' placeholder='角色默认如何认识 {{user}}？'></textarea></div><div class='field'><label>开场白</label><textarea id='cGreeting' placeholder='进入聊天后显示的第一段剧情。'></textarea></div><div class='field'><label>剧情 / 世界背景</label><textarea id='cWorld' placeholder='时代、地点、关系、世界观、重要背景…'></textarea></div><div class='field'><label>输出要求</label><textarea id='cOutput' placeholder='例如：主动推进剧情；避免替 user 做决定；使用小说体…'></textarea></div><div class='field'><label>示例对话 / 文风</label><textarea id='cStyle' placeholder='放入示例或希望 AI 模仿的叙事风格。'></textarea></div><div class='section-title'>聊天视觉</div><div class='field'><label>角色聊天立绘</label><div class='uploadbox'><input id='cStandFile' type='file' accept='image/*' onchange='pickStandImage(event)'><div id='standPreview' class='previewimg'>未上传立绘</div><button class='btn' type='button' onclick='removeStandImage()'>移除立绘</button></div></div><div class='field'><label>立绘位置</label><div class='three'><button type='button' data-pos='left' onclick="setStandPos('left')">左</button><button type='button' data-pos='center' onclick="setStandPos('center')">中</button><button type='button' data-pos='right' onclick="setStandPos('right')">右</button></div></div><div class='field'><label>立绘大小 <span id='standSizeText' class='hint'></span></label><input id='cStandSize' class='range' type='range' min='35' max='120' value='72' oninput="standSizeText.textContent=this.value+'%';previewStandEditor()"></div><div class='field'><label>立绘透明度</label><input id='cStandOpacity' class='range' type='range' min='20' max='100' value='78' oninput='previewStandEditor()'></div><div class='row'><button class='btn primary grow' onclick='saveCharacter()'>保存角色</button><button class='btn' onclick="document.getElementById('editor').style.display='none'">取消</button></div></div></section>
-<section id='library' class='page'><div class='hero'><h2>剧情资料</h2><p>世界书和长期记忆都做成简单模式，复杂的上下文处理由网页自动完成。</p></div><div class='card'><div class='row'><div class='grow'><div class='section-title' style='margin:0'>📖 世界书</div><div class='hint'>出现触发词时自动加入设定。</div></div><button class='btn' onclick="document.getElementById('loreImportFile').click()">⇩ 导入</button><button class='btn' onclick='exportLore()'>⇧ 导出</button><button class='btn primary' onclick='openLoreEditor()'>＋ 添加</button><input id='loreImportFile' type='file' accept='.json,application/json' style='display:none' onchange='importLore(event)'></div><div id='loreList'></div><div id='loreEditor' style='display:none'><div class='field'><label>名称</label><input id='loreName' placeholder='例如：远洋商会'></div><div class='field'><label>触发词</label><input id='loreKeys' placeholder='商会, 远洋, 会长（逗号分隔）'></div><div class='field'><label>设定内容</label><textarea id='loreContent' placeholder='AI 需要知道的设定…'></textarea></div><div class='settingline'><div class='grow'><b>始终生效</b><div class='hint'>无需出现触发词也会加入剧情。</div></div><label class='toggle'><input id='loreAlways' type='checkbox'><span class='slider'></span></label></div><div class='row'><button class='btn primary grow' onclick='saveLore()'>保存</button><button class='btn' onclick="loreEditor.style.display='none'">取消</button></div></div></div><div class='card'><div class='row'><div class='grow'><div class='section-title' style='margin:0'>🧠 长期记忆</div><div class='hint'>AI 自动整理重要剧情，你也可以修改或删除。</div></div><button class='btn' onclick='refreshMemories()'>刷新</button></div><div id='memoryList'></div><button class='btn primary' style='width:100%;margin-top:8px' onclick='summarizeMemory(true)'>现在整理一次记忆</button></div></section>
-<section id='settings' class='page'><div class='hero'><h2>连接 AI</h2><p>填好一次，以后选角色就能直接聊。复杂参数已经自动处理。</p></div><div class='card'><div class='field'><label>API 地址</label><input id='apiUrl' placeholder='https://example.com/v1'></div><div class='field'><label>API Key</label><input id='apiKey' type='password' placeholder='sk-…'></div><div class='field'><label>模型</label><div class='row'><select id='apiModelSelect' class='grow' style='border:1px solid var(--line);background:#fcfbff;border-radius:14px;padding:12px'><option value=''>先获取模型</option></select><button class='btn' onclick='loadModels()'>获取模型</button></div><input id='apiModel' style='margin-top:8px' placeholder='也可以手动填写模型名称'></div><p class='hint'>Key 仅保存在此浏览器的 localStorage。公开部署网页时，不要把自己的 Key 写死在源码里。</p><div class='row'><button class='btn primary grow' onclick='testConnection()'>测试连接</button><button class='btn' onclick='saveSettings()'>保存</button></div><div id='connectionStatus' class='status' style='margin-top:10px'>⚪ 尚未测试</div><span id='saveStatus' class='status'></span></div><div class='card'><div class='section-title'>🎨 全局美化</div><p class='hint'>一次设置，聊天、角色、书库和小剧场一起变化。</p><div class='theme-grid'><button class='theme-chip' onclick="applyPreset('lilac')"><div class='swatch' style='background:linear-gradient(135deg,#efeaff,#cbbcff)'></div><b>丁香</b><span class='mini'>默认浅紫</span></button><button class='theme-chip' onclick="applyPreset('cream')"><div class='swatch' style='background:linear-gradient(135deg,#fff8ed,#ead7bd)'></div><b>奶油</b><span class='mini'>暖色小说感</span></button><button class='theme-chip' onclick="applyPreset('rose')"><div class='swatch' style='background:linear-gradient(135deg,#fff0f5,#edb8cb)'></div><b>莓粉</b><span class='mini'>柔粉聊天</span></button><button class='theme-chip' onclick="applyPreset('night')"><div class='swatch' style='background:linear-gradient(135deg,#282537,#4b4565)'></div><b>夜读</b><span class='mini'>深色模式</span></button></div><div class='field'><label>字号</label><input class='range' id='fontScale' type='range' min='.85' max='1.25' step='.05' oninput='previewTheme()'></div><div class='field'><label>气泡圆角</label><input class='range' id='bubbleRadius' type='range' min='4' max='28' step='1' oninput='previewTheme()'></div><div class='field'><label>强调色</label><div class='colorrow'><input id='accentText' placeholder='#7b61e8' oninput='previewTheme()'><input id='accentColor' type='color' value='#7b61e8' oninput="accentText.value=this.value;previewTheme()"></div></div><div class='field'><label>背景图片 URL（可选）</label><input id='wallpaper' placeholder='https://…' oninput='previewTheme()'></div><div class='field'><label>自定义 CSS（高级）</label><textarea id='customCss' placeholder='例如：.msg{letter-spacing:.03em}'></textarea></div><div class='row'><button class='btn primary grow' onclick='saveTheme()'>保存全局美化</button><button class='btn' onclick='resetTheme()'>恢复默认</button></div></div><div class='card'><div class='settingline'><div class='grow'><b>🔞 成人内容模式</b><div class='hint'>仅对年龄明确为 18 岁或以上的角色生效；实际可生成内容仍取决于你连接的模型服务。</div></div><label class='toggle'><input id='adultMode' type='checkbox' onchange='saveAdultMode()'><span class='slider'></span></label></div><div id='adultStatus' class='status'></div></div><div class='card'><b>📦 数据与搬家</b><p class='hint'>一键备份角色、聊天存档、分支、剧情摘要、世界书、长期记忆和美化设置。为了安全，API Key 不会写入备份。</p><div class='row'><button class='btn primary grow' onclick='exportBackup()'>导出完整备份</button><button class='btn' onclick="document.getElementById('backupImportFile').click()">恢复备份</button><input id='backupImportFile' type='file' accept='.json,application/json' style='display:none' onchange='importBackup(event)'></div><button class='btn danger' style='margin-top:10px' onclick='clearChat()'>清空当前聊天</button></div></section>
-<div id='theaterModal' class='modal' onclick="if(event.target===this)closeTheater()"><div class='sheet'><div class='sheetbar'></div><div class='theater-head'><div class='avatar'>🎭</div><div class='grow'><div class='title'>小剧场</div><div class='sub'>读取当前剧情生成，不写入主线</div></div><button class='btn' onclick='closeTheater()'>关闭</button></div><div id='theaterMenu'><div class='theater-grid'><button class='theater-chip' onclick="runTheater('内心OS')"><b>💭 内心 OS</b><span class='mini'>角色没有说出口的话</span></button><button class='theater-chip' onclick="runTheater('手机秘密')"><b>📱 手机秘密</b><span class='mini'>备忘录、搜索、聊天片段</span></button><button class='theater-chip' onclick="runTheater('朋友群聊')"><b>💬 朋友群聊</b><span class='mini'>旁人视角聊当前剧情</span></button><button class='theater-chip' onclick="runTheater('吃瓜论坛')"><b>🍉 吃瓜论坛</b><span class='mini'>论坛/热帖体</span></button><button class='theater-chip' onclick="runTheater('番外')"><b>📖 番外</b><span class='mini'>当前剧情的短番外</span></button><button class='theater-chip' onclick="runTheater('随机')"><b>🎲 随机</b><span class='mini'>随机挑一个有趣形式</span></button></div><div class='field'><label>自定义小剧场</label><textarea id='customTheater' placeholder='例如：写成豪门八卦公众号爆料，评论区也要出现…'></textarea></div><button class='btn primary' style='width:100%' onclick="runTheater('自定义',customTheater.value)">生成自定义小剧场</button></div><div id='theaterResult' style='display:none'><div id='theaterOutput' class='theater-output'>生成中…</div><div class='row' style='margin-top:12px'><button class='btn grow' onclick='backTheater()'>← 换一种</button><button class='btn primary grow' onclick='appendTheater()'>加入主线</button></div></div></div></div><nav class='nav'><button data-p='chat' class='on' onclick="show('chat')"><b>◉</b>聊天</button><button data-p='characters' onclick="show('characters')"><b>♙</b>角色</button><button data-p='library' onclick="show('library')"><b>▤</b>书库</button><button data-p='settings' onclick="show('settings')"><b>⚙</b>设置</button></nav></main>
-<script>
-let chars=JSON.parse(localStorage.getItem('lilac_chars')||'[]'), editing=-1, standDraft='', standPosDraft='center', active=Number(localStorage.getItem('lilac_active')||'-1');
-let saves=JSON.parse(localStorage.getItem('lilac_saves')||'[]'), activeSave=localStorage.getItem('lilac_active_save')||'', messages=[];
-function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
-function ensureSave(charId=active){let list=saves.filter(x=>x.charId===charId);let s=list.find(x=>x.id===activeSave)||list[0];if(!s){let legacy=JSON.parse(localStorage.getItem('lilac_messages')||'[]');s={id:uid(),charId,name:'主线',messages:(charId===active?legacy:[]),summary:'',created:Date.now()};saves.push(s);saveSaves()}activeSave=s.id;localStorage.setItem('lilac_active_save',activeSave);messages=s.messages||[];return s}
-function currentSave(){return saves.find(x=>x.id===activeSave)}
-function saveSaves(){localStorage.setItem('lilac_saves',JSON.stringify(saves))}
-function renderSaveBar(){let el=document.getElementById('saveSelect');if(!el)return;let list=saves.filter(x=>x.charId===active);el.innerHTML=list.map(x=>`<option value="${x.id}" ${x.id===activeSave?'selected':''}>${esc(x.name)}</option>`).join('');let s=currentSave(),box=document.getElementById('storySummary');box.textContent=s?.summary?'剧情摘要：'+s.summary:'';box.classList.toggle('on',!!s?.summary)}
-function switchSave(id){activeSave=id;localStorage.setItem('lilac_active_save',id);messages=currentSave()?.messages||[];renderChat()}
-function newSave(){if(active<0)return alert('请先选择角色');let name=prompt('新存档名称','新故事');if(name===null)return;let c=chars[active],s={id:uid(),charId:active,name:name.trim()||'新故事',messages:c?.greeting?[{role:'assistant',content:c.greeting,variants:[c.greeting],variant:0}]:[],summary:'',created:Date.now()};saves.push(s);activeSave=s.id;saveSaves();localStorage.setItem('lilac_active_save',activeSave);messages=s.messages;renderChat()}
-function renameSave(){let s=currentSave();if(!s)return;let n=prompt('存档名称',s.name);if(n!==null&&n.trim()){s.name=n.trim();saveSaves();renderSaveBar()}}
-function branchFrom(i){let base=currentSave();if(!base)return;let n=prompt('新分支名称',base.name+' · 分支');if(n===null)return;let cloned=JSON.parse(JSON.stringify(messages.slice(0,i+1)));let s={id:uid(),charId:active,name:n.trim()||'剧情分支',messages:cloned,summary:base.summary||'',created:Date.now()};saves.push(s);activeSave=s.id;messages=s.messages;saveSaves();localStorage.setItem('lilac_active_save',activeSave);renderChat()}
+        /* 设置弹窗 */
+        .modal { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.8); display: flex; justify-content: center; 
+            align-items: center; z-index: 100; padding: 15px;
+        }
+        .modal.hidden { display: none; }
+        .modal-content { 
+            background: #252525; padding: 20px; border-radius: 15px; 
+            width: 100%; max-width: 500px; max-height: 90vh; overflow-y: auto; 
+            display: flex; flex-direction: column; gap: 12px;
+            border: 1px solid #444;
+        }
+        .modal-content h3 { font-size: 15px; color: #e0c3fc; margin-top: 5px; }
+        .modal-content input, .modal-content textarea { 
+            width: 100%; padding: 10px; border-radius: 8px; 
+            border: 1px solid #444; background: #333; color: #fff; 
+            font-family: inherit; font-size: 14px;
+        }
+        .modal-content textarea { height: 80px; resize: vertical; }
+        .modal-buttons { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+        .modal-buttons button { padding: 8px 16px; border-radius: 8px; border: none; font-size: 14px; }
+        #btn-save { background: #7b2cbf; color: white; }
+        #btn-close { background: #444; color: #ccc; }
 
-function show(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('on',x.dataset.p===id));if(id==='characters')renderChars();if(id==='library'){renderLore();renderMemories()}if(id==='settings')updateAdultStatus()}
-function newCharacter(){editing=-1;standDraft='';standPosDraft='center';['cName','cAge','cPersona','cUser','cGreeting','cWorld','cOutput','cStyle'].forEach(x=>document.getElementById(x).value='');cStandSize.value=72;cStandOpacity.value=78;updateStandEditor();editor.style.display='block';editor.scrollIntoView({behavior:'smooth'})}
-function editChar(i){editing=i;let c=chars[i];cName.value=c.name||'';cAge.value=c.age||'';cPersona.value=c.persona||'';cUser.value=c.user||'';cGreeting.value=c.greeting||'';cWorld.value=c.world||'';cOutput.value=c.output||'';cStyle.value=c.style||'';standDraft=c.stand||'';standPosDraft=c.standPos||'center';cStandSize.value=c.standSize||72;cStandOpacity.value=c.standOpacity||78;updateStandEditor();editor.style.display='block'}
-function saveCharacter(){let c={name:cName.value.trim()||'未命名角色',age:Number(cAge.value)||null,persona:cPersona.value,user:cUser.value,greeting:cGreeting.value,world:cWorld.value,output:cOutput.value,style:cStyle.value,stand:standDraft,standPos:standPosDraft,standSize:Number(cStandSize.value)||72,standOpacity:Number(cStandOpacity.value)||78};if(editing<0)chars.push(c);else chars[editing]=c;localStorage.setItem('lilac_chars',JSON.stringify(chars));editor.style.display='none';renderChars()}
-function renderChars(){charList.innerHTML=chars.length?'':'<div class="empty" style="grid-column:1/-1">还没有角色。</div>';chars.forEach((c,i)=>{let d=document.createElement('div');d.className='char';d.innerHTML=`<div class="pic" ${c.stand?`style="background-image:url('${c.stand}');background-size:cover;background-position:center"`:''}>${c.stand?'':'✦'}</div><h3>${esc(c.name)}</h3><div class="hint">${esc((c.persona||'暂无人设').slice(0,38))}</div><div class="row" style="margin-top:10px"><button class="btn primary grow">聊天</button><button class="btn">编辑</button></div>`;d.querySelectorAll('button')[0].onclick=()=>selectChar(i);d.querySelectorAll('button')[1].onclick=()=>editChar(i);charList.appendChild(d)})}
-function selectChar(i){active=i;localStorage.setItem('lilac_active',i);activeSave='';ensureSave(i);renderChat();updateAdultStatus();show('chat')}
-function renderChat(){let c=chars[active];if(c)ensureSave(active);applyChatVisual(c);renderSaveBar();chatName.textContent=c?c.name:'开始一段故事';chatDesc.textContent=c?'角色设定会自动加入上下文。':'选择角色后即可聊天。无需调整预设。';messagesEl=document.getElementById('messages');messagesEl.innerHTML=messages.length?'':'<div class="empty">还没有对话。</div>';messages.forEach((m,i)=>{if(m.variants?.length)m.content=m.variants[m.variant||0];let wrap=document.createElement('div'),d=document.createElement('div');d.className='msg '+(m.role==='user'?'me':'ai');d.textContent=m.content;wrap.className='msgwrap';wrap.appendChild(d);if(m.role==='assistant'&&m.variants?.length>1){let b=document.createElement('div');b.className='branchbar';b.innerHTML=`<button onclick="prevVariant(${i})">‹</button><span>${(m.variant||0)+1}/${m.variants.length}</span><button onclick="nextVariant(${i})">›</button>`;wrap.appendChild(b)}let tools=document.createElement('div');tools.className='msg-tools';tools.innerHTML=`<button class="iconbtn" onclick="copyMsg(${i})">复制</button><button class="iconbtn" onclick="editMsg(${i})">编辑</button><button class="iconbtn" onclick="deleteMsg(${i})">删除</button><button class="iconbtn" onclick="branchFrom(${i})">从这里分支</button>${m.role==='assistant'?`<button class="iconbtn" onclick="regenerate(${i})">重生成</button>`:''}`;wrap.appendChild(tools);messagesEl.appendChild(wrap)});scrollTo(0,document.body.scrollHeight)}
-function prevVariant(i){let m=messages[i];if(!m?.variants?.length)return;m.variant=((m.variant||0)-1+m.variants.length)%m.variants.length;m.content=m.variants[m.variant];persist();renderChat()}
-function nextVariant(i){let m=messages[i];if(!m?.variants?.length)return;m.variant=((m.variant||0)+1)%m.variants.length;m.content=m.variants[m.variant];persist();renderChat()}
+        /* 全局注入区 & 小剧场 */
+        .mini-theater { padding: 0 15px; empty-cells: hide; }
+        /* 用户自定义 CSS 将在这里生效 */
+    </style>
+</head>
+<body>
 
-function matchedLore(){let text=messages.slice(-20).map(x=>x.content).join('\n').toLowerCase();return lore.filter(x=>x.always||(x.keys||[]).some(k=>k&&text.includes(k.toLowerCase())))}
-function activeMemories(){return memories.filter(x=>x.charId===active).slice(-20)}
-function systemPrompt(c){let ls=matchedLore(),ms=activeMemories(),sum=currentSave()?.summary||'',adult=(localStorage.getItem('lilac_adult')==='1'&&Number(c.age)>=18);return `你正在进行沉浸式角色扮演。始终扮演以下角色，并保持人物一致性。\n\n【角色人设】\n${c.persona||''}\n\n【对用户的默认认知】\n${c.user||''}\n\n【世界/剧情背景】\n${c.world||''}\n\n${sum?'【当前存档剧情摘要】\n'+sum+'\n\n':''}${ls.length?'【当前相关世界书】\\n'+ls.map(x=>'- '+x.name+'：'+x.content).join('\\n')+'\\n\\n':''}${ms.length?'【长期记忆】\\n'+ms.map(x=>'- '+x.text).join('\\n')+'\\n\\n':''}【内容模式】\n${adult?'角色已明确成年，可自然处理成熟恋爱与成人题材；仍须遵循当前 API/模型的内容规则。':'普通模式。'}\n\n【输出要求】\n${c.output||'自然推进剧情，不替用户决定其言行。'}\n\n【示例与文风】\n${c.style||''}`}
+    <!-- 顶部栏 -->
+    <header>
+        <button id="btn-settings">⚙️ 设定</button>
+        <h2 id="char-name">未命名角色</h2>
+        <button id="btn-clear">🗑️ 清空</button>
+    </header>
 
-let generating=false,aborter=null;
-async function sendMsg(){if(generating){aborter?.abort();return}let text=input.value.trim();if(!text)return;if(active<0||!chars[active])return alert('请先创建并选择角色');input.value='';messages.push({role:'user',content:text});persist();renderChat();await generateReply()}
-async function generateReply(targetIndex=null){let {url,key,model}=getApi();if(!url||!key||!model){messages.push({role:'assistant',content:'还没有连接 AI。到「设置」填 API 后点“测试连接”即可。'});persist();return renderChat()}generating=true;sendBtn.textContent='■';aborter=new AbortController();try{let payload=messages.map(x=>({role:x.role,content:x.content}));if(targetIndex!==null)payload=messages.slice(0,targetIndex).map(x=>({role:x.role,content:x.content}));let r=await fetch(url.replace(/\/$/,'')+'/chat/completions',{method:'POST',signal:aborter.signal,headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({model,messages:[{role:'system',content:systemPrompt(chars[active])},...payload],stream:false})});if(!r.ok)throw new Error((await r.text()).slice(0,300));let j=await r.json(),txt=j.choices?.[0]?.message?.content||'API 没有返回可读取的内容。';if(targetIndex!==null&&messages[targetIndex]?.role==='assistant'){let m=messages[targetIndex];m.variants=m.variants||[m.content];m.variants.push(txt);m.variant=m.variants.length-1;m.content=txt}else messages.push({role:'assistant',content:txt,variants:[txt],variant:0});if(messages.length>=16&&messages.length%8===0){summarizeMemory(false);summarizeStory(false)}}catch(e){if(e.name!=='AbortError')messages.push({role:'assistant',content:'API 请求失败：'+e.message})}finally{generating=false;sendBtn.textContent='➤';aborter=null;persist();renderChat()}}
-function copyMsg(i){navigator.clipboard?.writeText(messages[i].content)}
-function editMsg(i){let v=prompt('编辑消息',messages[i].content);if(v!==null){messages[i].content=v;messages=messages.slice(0,i+1);persist();renderChat()}}
-function deleteMsg(i){if(confirm('删除这条消息？')){messages.splice(i,1);persist();renderChat()}}
-async function regenerate(i){if(messages[i]?.role!=='assistant')return;await generateReply(i)}
-async function loadModels(){saveSettings();let {url,key}=getApi();if(!url||!key)return alert('先填写 API 地址和 Key');connectionStatus.textContent='⏳ 正在获取模型…';try{let r=await fetch(url.replace(/\/$/,'')+'/models',{headers:{'Authorization':'Bearer '+key}});if(!r.ok)throw new Error((await r.text()).slice(0,160));let j=await r.json(),list=(j.data||[]).map(x=>x.id).filter(Boolean).sort();apiModelSelect.innerHTML='<option value="">选择模型</option>'+list.map(x=>`<option>${esc(x)}</option>`).join('');connectionStatus.textContent=`🟢 找到 ${list.length} 个模型`;apiModelSelect.onchange=()=>{apiModel.value=apiModelSelect.value;saveSettings()}}catch(e){connectionStatus.textContent='🔴 获取失败：'+e.message}}
-async function testConnection(){saveSettings();let {url,key,model}=getApi();if(!url||!key||!model)return connectionStatus.textContent='🟠 请先填写 API 地址、Key 和模型';connectionStatus.textContent='⏳ 正在测试…';try{let r=await fetch(url.replace(/\/$/,'')+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({model,messages:[{role:'user',content:'只回复 OK'}],max_tokens:8})});if(!r.ok)throw new Error((await r.text()).slice(0,160));connectionStatus.textContent='🟢 AI 已连接，可以开始聊天了'}catch(e){connectionStatus.textContent='🔴 连接失败：'+e.message}}
-function saveSettings(){localStorage.setItem('lilac_url',apiUrl.value.trim());localStorage.setItem('lilac_key',apiKey.value.trim());localStorage.setItem('lilac_model',apiModel.value.trim());saveStatus.textContent='已保存'}
-function persist(){let s=currentSave();if(s){s.messages=messages;saveSaves()}localStorage.setItem('lilac_messages',JSON.stringify(messages))}function clearChat(){if(!confirm('清空当前存档？'))return;messages=[];let s=currentSave();if(s)s.summary='';persist();renderChat()}function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+    <!-- 全局美化 & 小剧场渲染区 -->
+    <style id="user-global-css"></style>
+    <div id="mini-theater" class="mini-theater"></div>
 
-let lastTheater='';
-function getApi(){return {url:localStorage.getItem('lilac_url')||'',key:localStorage.getItem('lilac_key')||'',model:localStorage.getItem('lilac_model')||''}}
-function openTheater(){if(active<0||!chars[active])return alert('请先选择角色');theaterModal.classList.add('on');backTheater()}
-function closeTheater(){theaterModal.classList.remove('on')}
-function backTheater(){theaterMenu.style.display='block';theaterResult.style.display='none'}
-async function runTheater(type,custom=''){let api=getApi();if(!api.url||!api.key||!api.model)return alert('请先在设置中配置 API');theaterMenu.style.display='none';theaterResult.style.display='block';theaterOutput.textContent='正在生成 '+type+'…';let c=chars[active],recent=messages.slice(-16).map(x=>(x.role==='user'?'{{user}}':c.name)+': '+x.content).join('\n\n');let task=custom||({'内心OS':'只写角色此刻没有说出口的真实内心活动，可以有克制、误解、吃醋或自我辩解，但必须符合人设。','手机秘密':'以角色手机内容的形式展示与当前剧情有关的搜索记录、备忘录、未发送消息或聊天片段。','朋友群聊':'写一个角色朋友群聊，朋友们围绕最近发生的剧情聊天，保持自然、有梗，不要改变主线事实。','吃瓜论坛':'写成匿名论坛吃瓜帖：主楼+几条风格不同的评论，围绕当前剧情展开。','番外':'写一段当前剧情之外但紧密相关的短番外，补充一个有趣细节。','随机':'从日记、论坛、群聊、备忘录、采访、弹幕、梦境中随机选一种最适合当前剧情的形式。'}[type]||type);let prompt=`你是“剧情小剧场”生成器。小剧场是主线之外的彩蛋，不得替用户决定行为，不得凭空改变既有事实。\n\n角色设定：\n${systemPrompt(c)}\n\n最近剧情：\n${recent}\n\n任务：${task}\n\n直接输出小剧场正文，不解释。`;try{let r=await fetch(api.url.replace(/\/$/,'')+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+api.key},body:JSON.stringify({model:api.model,messages:[{role:'system',content:prompt}],temperature:.95})});if(!r.ok)throw new Error((await r.text()).slice(0,240));let j=await r.json();lastTheater=j.choices?.[0]?.message?.content||'没有返回内容';theaterOutput.textContent=lastTheater}catch(e){lastTheater='';theaterOutput.textContent='生成失败：'+e.message}}
-function appendTheater(){if(!lastTheater)return;messages.push({role:'assistant',content:'【小剧场】\n'+lastTheater});persist();renderChat();closeTheater()}
-const presets={lilac:{bg:'#f8f6ff',card:'#ffffff',ink:'#292637',muted:'#89849a',line:'#ece8f6',p:'#7b61e8',user:'#8065e8',ai:'#ffffff'},cream:{bg:'#fffaf2',card:'#fffdf8',ink:'#3b3129',muted:'#8f8174',line:'#eee2d2',p:'#b88458',user:'#b88458',ai:'#fffdf8'},rose:{bg:'#fff6f9',card:'#ffffff',ink:'#3a2b32',muted:'#9a7d89',line:'#f0dfe6',p:'#c66f91',user:'#c66f91',ai:'#ffffff'},night:{bg:'#211f2b',card:'#2c2939',ink:'#f4f0ff',muted:'#aaa3bb',line:'#403b50',p:'#9f8bf3',user:'#7663c8',ai:'#2c2939'}};
-function applyPreset(n){let t=presets[n];Object.entries(t).forEach(([k,v])=>document.documentElement.style.setProperty('--'+(k==='user'?'userBubble':k==='ai'?'aiBubble':k),v));accentText.value=t.p;accentColor.value=t.p;previewTheme()}
-function previewTheme(){let a=accentText.value||accentColor.value||'#7b61e8';document.documentElement.style.setProperty('--p',a);document.documentElement.style.setProperty('--fontScale',fontScale.value||1);document.documentElement.style.setProperty('--radius',(bubbleRadius.value||17)+'px');let w=wallpaper.value.trim();document.documentElement.style.setProperty('--wallpaper',w?`url("${w.replace(/"/g,'')}")`:'none')}
-function saveTheme(){let cs=customCss.value||'';localStorage.setItem('lilac_theme',JSON.stringify({accent:accentText.value,font:fontScale.value,radius:bubbleRadius.value,wallpaper:wallpaper.value,css:cs,vars:getComputedStyle(document.documentElement).cssText}));applyCustomCss(cs);saveStatus.textContent='美化已保存'}
-function applyCustomCss(css){let el=document.getElementById('userCustomCss');if(!el){el=document.createElement('style');el.id='userCustomCss';document.head.appendChild(el)}el.textContent=css}
-function loadTheme(){let t=JSON.parse(localStorage.getItem('lilac_theme')||'null');fontScale.value=t?.font||'1';bubbleRadius.value=t?.radius||'17';accentText.value=t?.accent||'#7b61e8';accentColor.value=accentText.value;wallpaper.value=t?.wallpaper||'';customCss.value=t?.css||'';if(t?.vars)document.documentElement.style.cssText=t.vars;previewTheme();applyCustomCss(customCss.value)}
-function resetTheme(){localStorage.removeItem('lilac_theme');document.documentElement.style.cssText='';applyPreset('lilac');fontScale.value='1';bubbleRadius.value='17';wallpaper.value='';customCss.value='';applyCustomCss('');previewTheme()}
+    <!-- 聊天记录区 -->
+    <main id="chat-container"></main>
 
+    <!-- 底部输入区 -->
+    <footer>
+        <textarea id="user-input" placeholder="输入消息..."></textarea>
+        <button id="btn-send">发送</button>
+    </footer>
 
-let lore=JSON.parse(localStorage.getItem('lilac_lore')||'[]'),loreEditing=-1,memories=JSON.parse(localStorage.getItem('lilac_memories')||'[]');
-function openLoreEditor(i=-1){loreEditing=i;let x=i>=0?lore[i]:{};loreName.value=x.name||'';loreKeys.value=(x.keys||[]).join(', ');loreContent.value=x.content||'';loreAlways.checked=!!x.always;loreEditor.style.display='block';loreEditor.scrollIntoView({behavior:'smooth'})}
-function saveLore(){let x={name:loreName.value.trim()||'未命名设定',keys:loreKeys.value.split(/[,，]/).map(x=>x.trim()).filter(Boolean),content:loreContent.value.trim(),always:loreAlways.checked};if(loreEditing<0)lore.push(x);else lore[loreEditing]=x;localStorage.setItem('lilac_lore',JSON.stringify(lore));loreEditor.style.display='none';renderLore()}
-function renderLore(){if(!document.getElementById('loreList'))return;loreList.innerHTML=lore.length?'':'<div class="hint" style="padding:14px 0">还没有世界书。需要时再添加就好。</div>';lore.forEach((x,i)=>{let d=document.createElement('div');d.className='lore-item';d.innerHTML=`<b>${esc(x.name)} ${x.always?'<span class="badge">常驻</span>':''}</b><div class="hint">${esc((x.keys||[]).join(' · ')||'无触发词')}</div><div style="margin-top:6px">${esc(x.content)}</div><div class="inline-actions"><button onclick="openLoreEditor(${i})">编辑</button><button onclick="deleteLore(${i})">删除</button></div>`;loreList.appendChild(d)})}
-function deleteLore(i){if(confirm('删除这条世界书？')){lore.splice(i,1);localStorage.setItem('lilac_lore',JSON.stringify(lore));renderLore()}}
-function refreshMemories(){renderMemories()}
-function renderMemories(){if(!document.getElementById('memoryList'))return;let list=memories.map((x,i)=>({...x,_i:i})).filter(x=>x.charId===active);memoryList.innerHTML=list.length?'':'<div class="hint" style="padding:14px 0">当前角色还没有长期记忆。聊天一段时间后会自动整理。</div>';list.forEach(x=>{let d=document.createElement('div');d.className='memory-item';d.innerHTML=`<b>记忆</b><textarea>${esc(x.text)}</textarea><div class="inline-actions"><button>保存修改</button><button>删除</button></div>`;let ta=d.querySelector('textarea');d.querySelectorAll('button')[0].onclick=()=>{memories[x._i].text=ta.value.trim();saveMemories();renderMemories()};d.querySelectorAll('button')[1].onclick=()=>{memories.splice(x._i,1);saveMemories();renderMemories()};memoryList.appendChild(d)})}
-function saveMemories(){localStorage.setItem('lilac_memories',JSON.stringify(memories))}
-async function summarizeStory(manual=false){let api=getApi(),sv=currentSave();if(!sv||!api.url||!api.key||!api.model)return;let old=messages.slice(0,-8);if(old.length<8)return;let transcript=old.slice(-30).map(x=>(x.role==='user'?'用户':chars[active].name)+': '+x.content).join('\n');try{let r=await fetch(api.url.replace(/\/$/,'')+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+api.key},body:JSON.stringify({model:api.model,messages:[{role:'system',content:'把以下角色扮演旧剧情压缩成简洁、客观的剧情摘要。保留人物关系变化、重要事件、地点、约定、冲突和未解决线索，不添加新事实。直接输出摘要。'},{role:'user',content:(sv.summary?'已有摘要：'+sv.summary+'\n\n':'')+'旧剧情：\n'+transcript}]})});if(!r.ok)throw new Error(await r.text());let j=await r.json();sv.summary=(j.choices?.[0]?.message?.content||'').trim();saveSaves();renderSaveBar()}catch(e){if(manual)alert('剧情总结失败：'+e.message)}}
-async function summarizeMemory(manual=false){if(active<0||!chars[active])return manual&&alert('请先选择角色');let api=getApi();if(!api.url||!api.key||!api.model)return manual&&alert('请先连接 API');let recent=messages.slice(-18);if(recent.length<4)return manual&&alert('聊天还太短，暂时没有需要整理的记忆');let transcript=recent.map(x=>(x.role==='user'?'用户':chars[active].name)+': '+x.content).join('\n');try{let r=await fetch(api.url.replace(/\/$/,'')+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+api.key},body:JSON.stringify({model:api.model,messages:[{role:'system',content:'从对话中提取1到4条未来角色扮演真正需要记住的长期事实，例如关系变化、承诺、重大事件、重要物品或稳定偏好。不要记录普通寒暄，不要猜测。每条一行，以“- ”开头。若没有值得长期记忆的内容，只回复 NONE。'},{role:'user',content:transcript}]})});if(!r.ok)throw new Error(await r.text());let j=await r.json(),txt=(j.choices?.[0]?.message?.content||'').trim();if(txt&&txt!=='NONE'){txt.split('\n').map(x=>x.replace(/^[-•]\s*/, '').trim()).filter(Boolean).forEach(t=>{if(!memories.some(m=>m.charId===active&&m.text===t))memories.push({charId:active,text:t,at:Date.now()})});saveMemories();renderMemories();if(manual)alert('记忆整理完成')}}catch(e){if(manual)alert('整理失败：'+e.message)}}
-function saveAdultMode(){localStorage.setItem('lilac_adult',adultMode.checked?'1':'0');updateAdultStatus()}
-function updateAdultStatus(){if(!document.getElementById('adultStatus'))return;let c=chars[active];if(!adultMode.checked)adultStatus.textContent='当前：关闭';else if(!c)adultStatus.textContent='已开启；选择成年角色后生效';else if(Number(c.age)>=18)adultStatus.textContent='当前角色 '+c.age+' 岁：已生效';else adultStatus.textContent='当前角色未明确为 18+：不会生效'}
+    <!-- 设置面板 -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>🎭 角色设定 (Character)</h3>
+            <input type="text" id="set-name" placeholder="角色名字">
+            <textarea id="set-persona" placeholder="角色人设（外貌、性格、经历、世界观等）"></textarea>
+            
+            <h3>👤 用户面具 (User Persona)</h3>
+            <textarea id="set-user-persona" placeholder="AI如何看待你（如：称呼你为老板，你是他的恋人等）"></textarea>
+            
+            <h3>📝 开场白与文风</h3>
+            <textarea id="set-first-message" placeholder="开场白文本（直接输入文字即可）"></textarea>
 
-function fileToDataUrl(file,cb){if(!file)return; if(file.size>5*1024*1024&&!confirm('图片超过 5MB，保存到浏览器可能占用较多空间。继续吗？'))return;let r=new FileReader();r.onload=()=>cb(r.result);r.readAsDataURL(file)}
-function pickStandImage(e){fileToDataUrl(e.target.files[0],x=>{standDraft=x;updateStandEditor()})}
-function removeStandImage(){standDraft='';updateStandEditor()}
-function setStandPos(p){standPosDraft=p;updateStandEditor()}
-function updateStandEditor(){standPreview.style.backgroundImage=standDraft?`url("${standDraft}")`:'none';standPreview.textContent=standDraft?'':'未上传立绘';document.querySelectorAll('[data-pos]').forEach(b=>b.classList.toggle('on',b.dataset.pos===standPosDraft));standSizeText.textContent=(cStandSize.value||72)+'%'}
-function previewStandEditor(){updateStandEditor()}
-function pickChatBackground(e){fileToDataUrl(e.target.files[0],x=>{localStorage.setItem('lilac_chatbg_draft',x);bgPreview.style.backgroundImage=`url("${x}")`;bgPreview.textContent='';previewChatVisual()})}
-function removeChatBackground(){localStorage.removeItem('lilac_chatbg_draft');localStorage.removeItem('lilac_chatbg');bgPreview.style.backgroundImage='none';bgPreview.textContent='未上传背景';previewChatVisual();applyChatVisual(chars[active])}
-function previewChatVisual(){let bg=localStorage.getItem('lilac_chatbg_draft')||localStorage.getItem('lilac_chatbg')||'';chatBg.style.backgroundImage=bg?`url("${bg}")`:'none';document.documentElement.style.setProperty('--bgBright',(Number(bgBright.value)||100)/100);document.documentElement.style.setProperty('--bgBlur',(Number(bgBlur.value)||0)+'px');document.documentElement.style.setProperty('--bgShade',(Number(bgShade.value)||0)/100)}
-function saveChatVisual(){let d=localStorage.getItem('lilac_chatbg_draft');if(d)localStorage.setItem('lilac_chatbg',d);localStorage.removeItem('lilac_chatbg_draft');localStorage.setItem('lilac_chatvisual',JSON.stringify({bright:bgBright.value,blur:bgBlur.value,shade:bgShade.value}));saveStatus.textContent='聊天背景已保存';applyChatVisual(chars[active])}
-function loadChatVisual(){let v=JSON.parse(localStorage.getItem('lilac_chatvisual')||'{}'),bg=localStorage.getItem('lilac_chatbg')||'';bgBright.value=v.bright||100;bgBlur.value=v.blur||0;bgShade.value=v.shade||12;bgPreview.style.backgroundImage=bg?`url("${bg}")`:'none';bgPreview.textContent=bg?'':'未上传背景';previewChatVisual()}
-function applyChatVisual(c){let bg=localStorage.getItem('lilac_chatbg')||'';chatBg.style.backgroundImage=bg?`url("${bg}")`:'none';let v=JSON.parse(localStorage.getItem('lilac_chatvisual')||'{}');document.documentElement.style.setProperty('--bgBright',(Number(v.bright||100))/100);document.documentElement.style.setProperty('--bgBlur',(Number(v.blur||0))+'px');document.documentElement.style.setProperty('--bgShade',(Number(v.shade||12))/100);if(c?.stand){charStand.style.backgroundImage=`url("${c.stand}")`;let x=c.standPos==='left'?'18%':c.standPos==='right'?'82%':'50%';document.documentElement.style.setProperty('--standX',x);document.documentElement.style.setProperty('--standSize',(c.standSize||72)+'%');document.documentElement.style.setProperty('--standOpacity',(c.standOpacity||78)/100)}else charStand.style.backgroundImage='none'}
+            <h3>🔌 API 设置</h3>
+            <input type="text" id="set-api-url" placeholder="API Base URL (如 https://api.openai.com/v1)">
+            <input type="password" id="set-api-key" placeholder="API Key (sk-...)">
+            <input type="text" id="set-model" placeholder="模型名 (如 gpt-4o, claude-3-5-sonnet)">
 
-function downloadJson(name,obj){let blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-function readJsonFile(file){return new Promise((res,rej)=>{let r=new FileReader();r.onload=()=>{try{res(JSON.parse(r.result))}catch(e){rej(new Error('无法读取 JSON 文件'))}};r.onerror=()=>rej(new Error('文件读取失败'));r.readAsText(file)})}
-async function importSTCharacter(e){let f=e.target.files?.[0];e.target.value='';if(!f)return;try{let raw=await readJsonFile(f),d=raw.data||raw;let ext=d.extensions||{},book=d.character_book||ext.character_book||null;let c={name:d.name||raw.name||'未命名角色',age:Number(d.age)||null,persona:d.description||d.personality||'',user:d.system_prompt||'',greeting:d.first_mes||d.first_message||'',world:d.scenario||'',output:d.post_history_instructions||'',style:d.mes_example||d.example_dialogue||'',stand:'',standPos:'center',standSize:72,standOpacity:78,stExtra:{creator_notes:d.creator_notes||'',tags:d.tags||[],alternate_greetings:d.alternate_greetings||[],extensions:ext}};chars.push(c);let ci=chars.length-1;localStorage.setItem('lilac_chars',JSON.stringify(chars));if(book){let entries=Array.isArray(book.entries)?book.entries:Object.values(book.entries||{});entries.forEach((x,n)=>{let keys=x.keys||x.key||x.keywords||[];if(typeof keys==='string')keys=keys.split(/[,，]/);lore.push({name:x.comment||x.name||`${c.name} · 世界书 ${n+1}`,keys:Array.isArray(keys)?keys:[],content:x.content||'',always:!!(x.constant||x.always_enabled),charId:ci,stExtra:x})});localStorage.setItem('lilac_lore',JSON.stringify(lore))}renderChars();renderLore();selectChar(ci);alert(`✓ 已导入「${c.name}」${book?'，并带入世界书':''}`)}catch(err){alert('角色卡导入失败：'+err.message)}}
-function exportLore(){downloadJson('lilac-worldbook.json',{format:'lilac-worldbook',version:1,entries:lore})}
-async function importLore(e){let f=e.target.files?.[0];e.target.value='';if(!f)return;try{let raw=await readJsonFile(f),src=raw.entries||raw;let arr=Array.isArray(src)?src:Object.values(src||{}),added=0;arr.forEach((x,n)=>{let keys=x.keys||x.key||x.keywords||[];if(typeof keys==='string')keys=keys.split(/[,，]/);let content=x.content||x.text||'';if(!content)return;lore.push({name:x.name||x.comment||`导入设定 ${n+1}`,keys:Array.isArray(keys)?keys:[],content,always:!!(x.always||x.constant||x.always_enabled),stExtra:x});added++});localStorage.setItem('lilac_lore',JSON.stringify(lore));renderLore();alert(`✓ 已导入 ${added} 条世界书设定`)}catch(err){alert('世界书导入失败：'+err.message)}}
-function exportBackup(){let keys=['lilac_chars','lilac_saves','lilac_active','lilac_active_save','lilac_lore','lilac_memories','lilac_adult','lilac_theme','lilac_chatbg','lilac_chatvisual','lilac_url','lilac_model'];let data={format:'lilac-rp-backup',version:1,createdAt:new Date().toISOString(),storage:{}};keys.forEach(k=>{let v=localStorage.getItem(k);if(v!==null)data.storage[k]=v});downloadJson('lilac-rp-backup-'+new Date().toISOString().slice(0,10)+'.json',data)}
-async function importBackup(e){let f=e.target.files?.[0];e.target.value='';if(!f)return;if(!confirm('恢复备份会覆盖当前角色、聊天和美化数据。API Key 不会被修改。继续吗？'))return;try{let b=await readJsonFile(f);if(b.format!=='lilac-rp-backup'||!b.storage)throw new Error('这不是 Lilac RP 备份文件');Object.entries(b.storage).forEach(([k,v])=>{if(k!=='lilac_key')localStorage.setItem(k,v)});alert('✓ 恢复完成，网页将重新载入');location.reload()}catch(err){alert('恢复失败：'+err.message)}}
+            <h3>🎨 全局美化 (输入 CSS)</h3>
+            <textarea id="set-css" placeholder="这里输入CSS代码，不要加 <style> 标签，例如：body { background: #000; }"></textarea>
 
-apiUrl.value=localStorage.getItem('lilac_url')||'';apiKey.value=localStorage.getItem('lilac_key')||'';apiModel.value=localStorage.getItem('lilac_model')||'';adultMode.checked=localStorage.getItem('lilac_adult')==='1';loadChatVisual();renderChat();renderLore();renderMemories();updateAdultStatus();loadTheme();
-</script></body></html>
+            <h3>🎬 小剧场 (输入 HTML/SVG)</h3>
+            <textarea id="set-theater" placeholder="输入 HTML 或 SVG 代码，用于渲染按钮、音乐播放器等组件"></textarea>
+
+            <div class="modal-buttons">
+                <button id="btn-close">关闭</button>
+                <button id="btn-save">保存设定</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ================= 状态管理 =================
+        let state = {
+            name: '新角色',
+            persona: '',
+            userPersona: '用户',
+            firstMessage: '',
+            apiUrl: 'https://api.openai.com/v1',
+            apiKey: '',
+            model: 'gpt-3.5-turbo',
+            globalCss: '',
+            miniTheater: '',
+            history: [] // 格式: [{ role: 'user'|'assistant', content: '...' }]
+        };
+
+        let isGenerating = false; // 防止重复发送
+
+        // ================= DOM 元素 =================
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const btnSend = document.getElementById('btn-send');
+        const settingsModal = document.getElementById('settings-modal');
+        const charNameEl = document.getElementById('char-name');
+
+        // ================= 数据持久化 =================
+        function loadState() {
+            const saved = localStorage.getItem('ai_rp_state_v1');
+            if (saved) {
+                try {
+                    state = { ...state, ...JSON.parse(saved) };
+                } catch (e) { console.error('读取存档失败', e); }
+            }
+            renderUI();
+        }
+
+        function saveState() {
+            localStorage.setItem('ai_rp_state_v1', JSON.stringify(state));
+        }
+
+        // ================= 渲染界面 =================
+        function renderUI() {
+            charNameEl.innerText = state.name || '未命名角色';
+            
+            // 1. 注入全局 CSS
+            document.getElementById('user-global-css').innerHTML = state.globalCss;
+            
+            // 2. 注入小剧场 (使用 DOMPurify 过滤)
+            document.getElementById('mini-theater').innerHTML = DOMPurify.sanitize(state.miniTheater);
+            
+            // 3. 渲染聊天记录
+            chatContainer.innerHTML = '';
+            state.history.forEach((msg, index) => {
+                const div = document.createElement('div');
+                div.className = `message ${msg.role}`;
+                
+                // 解析 Markdown 并过滤 HTML
+                const parsedContent = marked.parse(msg.content);
+                div.innerHTML = DOMPurify.sanitize(parsedContent);
+                
+                // 给 AI 的消息添加操作按钮
+                if (msg.role === 'assistant') {
+                    const actions = document.createElement('div');
+                    actions.className = 'actions';
+                    actions.innerHTML = `
+                        <span onclick="regenerate(${index})">🔄 重新生成</span> 
+                        <span onclick="deleteMessage(${index})">🗑️ 删除这条</span>
+                    `;
+                    div.appendChild(actions);
+                }
+                chatContainer.appendChild(div);
+            });
+            
+            // 滚动到底部
+            setTimeout(() => { chatContainer.scrollTop = chatContainer.scrollHeight; }, 50);
+        }
+
+        // ================= 核心逻辑
